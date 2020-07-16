@@ -23,7 +23,7 @@ public class TecnologiaController {
 	public List<Tecnologia> getTecnologia() {
 		return tecnologiaRepository.findAll();
 	}
-	
+
 	@RequestMapping(value = "/tecnologia", method = RequestMethod.POST)
 	@ResponseBody
 	public Tecnologia createTecnologia(@Valid @RequestBody Tecnologia tecnologia) {
