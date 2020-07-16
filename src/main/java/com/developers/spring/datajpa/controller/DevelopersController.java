@@ -2,8 +2,10 @@ package com.developers.spring.datajpa.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,6 +22,12 @@ public class DevelopersController {
 	@ResponseBody
 	public List<Developers> getDevelopers() {
 		return developersRepository.findAll();
+	}
+
+	@RequestMapping(value = "/developers", method = RequestMethod.POST)
+	@ResponseBody
+	public Developers createDevelopers(@Valid @RequestBody Developers developers) {
+		return developersRepository.save(developers);
 	}
 
 }
