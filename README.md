@@ -16,6 +16,9 @@ Vamos a crear un ejemplo de API Spring Rest CRUD con Maven que usa Spring Data J
 - PostgreSQL
 - Maven 3.6.1
 
+### Estructura del proyecto
+![Latest Version on Packagist](https://github.com/freddytorres/developers/blob/master/src/main/java/com/developers/spring/datajpa/imagenes/img9.png?raw=true)
+
 ### Crear y configurar el proyecto Spring Boot
 Use la herramienta web Spring o su herramienta de desarrollo ( Spring Tool Suite , Eclipse, Intellij ) para crear un proyecto Spring Boot.
 
