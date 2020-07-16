@@ -1,6 +1,8 @@
 package com.developers.spring.datajpa.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,4 +48,15 @@ public class DevelopersController {
 		return ResponseEntity.ok(updatedDevelopers);
 	}
 
+	@RequestMapping(value = "/developers/{id}", method = RequestMethod.DELETE)
+	@ResponseBody
+	public Map<String, Boolean> deleteDevelopers(@PathVariable(value = "id") Long developerId)
+			throws ResourceNotFoundException {
+		Developers developers = developersRepository.findById(developerId)
+				.orElseThrow(() -> new ResourceNotFoundException("Developers no se encuentra : " + developerId));
+		developersRepository.delete(developers);
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("deleted", Boolean.TRUE);
+		return response;
+	}
 }
