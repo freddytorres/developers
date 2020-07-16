@@ -27,6 +27,12 @@ public class DevelopersController {
 		return developersRepository.findAll();
 	}
 
+	@RequestMapping(value = "/developers", method = RequestMethod.POST)
+	@ResponseBody
+	public Developers createDevelopers(@Valid @RequestBody Developers developers) {
+		return developersRepository.save(developers);
+	}
+
 	@RequestMapping(value = "/developers/{id}", method = RequestMethod.PUT)
 	@ResponseBody
 	public ResponseEntity<Developers> updateDevelopers(@PathVariable(value = "id") Long developerId,
